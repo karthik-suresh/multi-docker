@@ -13,14 +13,10 @@ after_success:
   - docker build -t kalikarthik/multi-nginx ./nginx
   - docker build -t kalikarthik/multi-server ./server
   - docker build -t kalikarthik/multi-worker ./worker
-
-# Login to the docker CLI.
-
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-
-# Push the images to docker hub.
-
-- docker push kalikarthik/multi-client
-- docker push kalikarthik/multi-nginx
-- docker push kalikarthik/multi-server
-- docker push kalikarthik/multi-worker
+  # Login to the docker CLI.
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Push the images to docker hub.
+  - docker push kalikarthik/multi-client
+  - docker push kalikarthik/multi-nginx
+  - docker push kalikarthik/multi-server
+  - docker push kalikarthik/multi-worker
